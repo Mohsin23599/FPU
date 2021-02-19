@@ -50,8 +50,9 @@ assign overflow = (sum_exp[8] & !sum_exp[7] & !zero);
 assign underflow = (sum_exp[8] & sum_exp[7] & !zero); 
 
 assign result = exception? 32'd0 : zero ? {sign,31'd0} : overflow ? {sign,8'hFF,23'd0} : underflow ? {sign,31'd0} : {sign,sum_exp[7:0],final_mantissa};
-
+/*
 initial begin
     $monitor($time,"sum_exp =%b / sign=%b / final_matissa=%b",sum_exp,sign,product_mantissa);
 end
+*/
 endmodule
